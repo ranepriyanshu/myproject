@@ -1,12 +1,28 @@
-import Background from "@/components/Background";
-import Navbar from "@/components/Navbar";
-import Image from "next/image";
+"use client";
 
-export default function Home() {
+import React, { useRef } from "react";
+import Navbar from "@/components/Navbar";
+import Background from "@/components/Background";
+import Mid from "@/components/Mid";
+import JobList from "@/components/JobList";
+import Choose from "@/components/Choose";
+import Application from "@/components/Application";
+import Footer from "@/components/Footer";
+
+const Page = () => {
+  const jobListRef = useRef(null);
+
   return (
-    <main>
-      <Background />
+    <div className="relative">
+      <Background jobListRef={jobListRef} />
       <Navbar />
-    </main>
+      <Mid />
+      <JobList ref={jobListRef} />
+      <Choose />
+      <Application />
+      <Footer />
+    </div>
   );
-}
+};
+
+export default Page;
